@@ -245,9 +245,9 @@
 #endif
 
 #ifdef ENDSTOPPULLUPS
-  #define ENDSTOPPULLUP_XMAX
-  #define ENDSTOPPULLUP_YMAX
-  #define ENDSTOPPULLUP_ZMAX
+//  #define ENDSTOPPULLUP_XMAX
+//  #define ENDSTOPPULLUP_YMAX
+//  #define ENDSTOPPULLUP_ZMAX
   #define ENDSTOPPULLUP_XMIN
   #define ENDSTOPPULLUP_YMIN
   #define ENDSTOPPULLUP_ZMIN
@@ -289,7 +289,7 @@ const bool Z_MAX_ENDSTOP_INVERTING = false; // set to true to invert the logic o
 
 // ENDSTOP SETTINGS:
 // Sets direction of endstops when homing; 1=MAX, -1=MIN
-#define X_HOME_DIR 1
+#define X_HOME_DIR -1
 #define Y_HOME_DIR -1
 #define Z_HOME_DIR -1
 
@@ -328,7 +328,7 @@ const bool Z_MAX_ENDSTOP_INVERTING = false; // set to true to invert the logic o
 #endif
 
 // Travel limits after homing
-#define X_MAX_POS 144
+#define X_MAX_POS 132
 #define X_MIN_POS 0
 #define Y_MAX_POS 144
 #define Y_MIN_POS 0
@@ -360,8 +360,8 @@ const bool Z_MAX_ENDSTOP_INVERTING = false; // set to true to invert the logic o
 #define HOMING_FEEDRATE {50*60, 50*60, 5*60, 5*60}  // set the homing speeds (mm/min)
 
 // default settings
-
-#define DEFAULT_AXIS_STEPS_PER_UNIT   {36.36,36.36,640,640}  // default steps per unit for Ultimaker
+// mUVe directions say to configure jumpers to quarter stepping. Thus, you need these values:
+#define DEFAULT_AXIS_STEPS_PER_UNIT   {4*200/3.14159/28.0162,4*200/3.14159/28.0162,640,640}  // default steps per unit for Ultimaker
 #define DEFAULT_MAX_FEEDRATE          {600, 600, 4, 4}    // (mm/sec)
 #define DEFAULT_MAX_ACCELERATION      {4000,4000,2,2}    // X, Y, Z, E maximum start speed for accelerated moves. E default values are good for skeinforge 40+, for older versions raise them a lot.
 
